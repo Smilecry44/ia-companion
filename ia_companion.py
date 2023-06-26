@@ -21,8 +21,6 @@ st.set_page_config(page_title="Votre compagnon IA",
 
 st.header("🐧 Nutnut votre compagnon IA 🐧")
 
-#openai.api_key = "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"
-
 # Définir la clé d'accès API d'OpenAI
 openai.api_key = "VOTRE_CLÉ_D'ACCÈS_API"
 # Récupérer la clé d'accès API d'OpenAI
