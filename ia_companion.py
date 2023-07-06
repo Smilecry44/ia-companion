@@ -24,7 +24,7 @@ st.header("🐧 Nutnut votre compagnon IA 🐧")
 # Définir la clé d'accès API d'OpenAI
 openai.api_key = "VOTRE_CLÉ_D'ACCÈS_API"
 # Récupérer la clé d'accès API d'OpenAI
-api_key = st.sidebar.text_input("Clé d'accès API OpenAI", type="password")
+api_key = st.sidebar.text_input("Clé d'accès API OpenAI", value="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", type="password")
 
 
 list_system = ["Developpeur", "Rédacteur","Expert SEO","Copywriter","Scientifique","Tree of thoughts"]
