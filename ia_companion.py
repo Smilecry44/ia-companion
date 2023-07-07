@@ -48,7 +48,7 @@ def call_openai_api(question, sumary, system):
     while True:
         try:
             completion = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4",
                 temperature=0.6,
                 frequency_penalty=0,
                 presence_penalty=0,
