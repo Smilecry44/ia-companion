@@ -21,12 +21,11 @@ st.set_page_config(page_title="Votre compagnon IA",
 
 st.header("🐧 Nutnut votre compagnon IA 🐧")
 
-#openai.api_key = "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"
 
 # Définir la clé d'accès API d'OpenAI
 openai.api_key = "VOTRE_CLÉ_D'ACCÈS_API"
 # Récupérer la clé d'accès API d'OpenAI
-api_key = st.sidebar.text_input("Clé d'accès API OpenAI", value="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", type="password")
+api_key = st.sidebar.text_input("Clé d'accès API OpenAI", type="password")
 api = ["gpt-3.5-turbo", "gpt-4"]
 api_choice = st.sidebar.selectbox("Quelle API ?", api)
 
