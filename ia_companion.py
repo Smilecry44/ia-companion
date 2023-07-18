@@ -67,7 +67,7 @@ system = st.sidebar.selectbox("Choisissez votre compagnon IA", list_system)
 question = st.sidebar.text_area("Votre Question ?")
 source = st.sidebar.text_input("Sujet récent ? Insérez ici une source pour aider NutNut", value="## Ne fonctionne plus pour l'instant ##")
 
-with st.expander("Voir le prompt", expanded=False):  
+with st.sidebar.expander("Voir le prompt", expanded=False):  
     # On utilise get pour éviter une KeyError si la clé n'existe pas
     system_info = bio_system.get(system, "Prompt en cours de dev")
     st.markdown(system_info)
