@@ -76,9 +76,9 @@ source = st.sidebar.text_input("Sujet récent ? Insérez ici une source pour aid
 
 @st.cache_data(show_spinner=False)
 @retry(APIError, tries=9, delay=15, backoff=6)
-def call_openai_api(question, sumary, system, api_choice):
+def call_openai_api(question, system, api_choice):
     chat_message = [{"role": "system", "content": f"{system}"},
-    {"role": "user", "content": f"Voici une question : {question}\n Inclu dans ta réponse les éléments suivants : {sumary} \nApporte moi la réponse la plus complète possible"}]
+    {"role": "user", "content": f"Voici une question : {question}\nApporte moi la réponse la plus complète possible"}]
 
     while True:
         try:
@@ -95,8 +95,6 @@ def call_openai_api(question, sumary, system, api_choice):
             st.write(f"Erreur {e}. Retrying...")
 
 
-
-extract_content = lambda url: trafilatura.extract(trafilatura.fetch_url(url), output_format="html", include_links=True)
 
 
 if st.sidebar.button("Envoyer"):
@@ -117,13 +115,8 @@ if st.sidebar.button("Envoyer"):
         progress_text = "Operation en cours. 🐧 Nutnut génère votre réponse... (cela peut prendre quelques secondes) 🐧"
         my_bar = st.progress(2, text=progress_text)
 
-        if source:
-            sumary = extract_content(source)
-        else:
-            sumary = ""
 
-
-        reponse = call_openai_api(question, sumary, bio, api_choice)
+        reponse = call_openai_api(question, bio, api_choice)
         
         if 'reponse' not in st.session_state:
                 st.session_state['reponse'] = reponse
